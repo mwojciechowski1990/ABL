@@ -1,4 +1,4 @@
-package com.ul.SSDP;
+package com.ul.ssdp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -38,7 +38,7 @@ public class SSDPClient {
 			+ "\r\n";
 
 
-	private void sendAlive() {
+	public void sendAlive() {
 		ArrayList<String> messages = new ArrayList<String>();
 		for(int i = 0; i < mNTHeaders.length; i++) {
 			messages.add(String.format(mSSDPAlive, "HTTP/1.1", mIpAddr + ":" + String.valueOf(mPort), mCacheControl, mDeviceDescirptionPath, i == 1 ? mNTHeaders[i] + mUUID : mNTHeaders[i], mOSVersion, mProductVersion, i == 1 ? mNTHeaders[i] + mUUID : "uuid:" + mUUID + "::" + mNTHeaders[i]));
@@ -67,7 +67,7 @@ public class SSDPClient {
 		}
 	}
 
-	private void sendByeBye() {
+	public void sendByeBye() {
 		ArrayList<String> messages = new ArrayList<String>();
 		for(int i = 0; i < mNTHeaders.length; i++) {
 			messages.add(String.format(mSSDPByeBye, "HTTP/1.1", mIpAddr + ":" + String.valueOf(mPort), i == 1 ? mNTHeaders[i] + mUUID : mNTHeaders[i], i == 1 ? mNTHeaders[i] + mUUID : "uuid:" + mUUID + "::" + mNTHeaders[i]));
@@ -129,5 +129,7 @@ public class SSDPClient {
 
 		mTimerNotify.schedule(mTN, 1, mCacheControl * 1000);
 	}
+	
+	
 
 }
