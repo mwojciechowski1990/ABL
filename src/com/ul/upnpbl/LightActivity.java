@@ -41,7 +41,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_light);
+		setContentView(R.layout.activity_dark);
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
@@ -108,11 +108,16 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	    switch (item.getItemId()) {
+        case R.id.turnOff:
+        	turnOff();
+            return true;
+        case R.id.trunOn:
+        	turnOn();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 	@Override
@@ -181,5 +186,11 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		System.loadLibrary("recv-jni");
 	}
 
-
+	public void turnOn() {
+		setContentView(R.layout.activity_light);
+	}
+	
+	public void turnOff() {
+		setContentView(R.layout.activity_dark);
+	}
 }
