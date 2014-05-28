@@ -44,7 +44,7 @@ public class WebServer extends NanoHTTPD {
 	private OnLightStatusChangeListener onLightStatusChangeListener = null;
 
 	/**
-	 *  Funkcja zmienia stan listenera
+	 *  Funkcja ustawia klase listener.
 	 * 
 	 * @param onLightStatusChangeListener
 	*/
@@ -54,7 +54,7 @@ public class WebServer extends NanoHTTPD {
 	}
 
 	/**
-	 *  Funkcja ustawia parametr port
+	 *  Konstruktor ustawia parametr port
 	 * 
 	 * @param port 
 	*/

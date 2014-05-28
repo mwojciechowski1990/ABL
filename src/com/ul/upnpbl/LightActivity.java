@@ -44,9 +44,10 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	private String lightStatus = "False";
 	
 	/**
-	 *  Funkcja
+	 *  Funkcja uruchamiana przy starcie aplikacji.
+	 *  Odpowiedzialna za Layout oraz View.
 	 *     
-	 *   @param mName
+	 *   @param savedInstanceState
 	 * 
 	*/
 	@Override
@@ -106,7 +107,8 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja tworzy menu opcji
+	 * W metodzie wskazywany jest plik, w ktorym zawarty jest
+	 * opis zawartosci menu.
 	 * 
 	 * @param menu
 	 * 
@@ -120,7 +122,8 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wskazuje wybrana opcje w menu
+	 * Metoda jest automatycznie wywolywana za kazdym
+	 * razem gdy uzytkownik kliknie w menu.
 	 * 
 	 * @param item
 	 * 
@@ -138,9 +141,10 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wywolujaca przerwe
+	 * Metoda umozliwia zatrzymanie biezacych akcji, ktore w czasie wstrzymania 
+	 * aktywnosci nie powinny byc kontynuowane. Metoda ta pozwala takze przechowac 
+	 * wszelkie informacje, ktore powinny zostac zapisane po opuszczeniu przez uzytkownika aplikacji
 	 * 
-	 * @param item
 	 * 
 	 */
 	@Override
@@ -159,9 +163,9 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wznawia dzialanie programu
-	 * 
-	 * @param item
+	 * Metoda wywolywana chwile przed tym jak activity wejdzie w interakcje z uzytkownikiem.
+	 * Od tej chwili activity jest w stanie running/resumed
+	 * i znajduje sie na szczycie stosu akcji.
 	 * 
 	 */	
 	@Override
@@ -177,14 +181,25 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 		syncStop.set(false);
 	}
+	
 	/**
-	 * A placeholder fragment containing a simple view.
+	 * Klasa PlaceholderFragment
 	 */
 	public static class PlaceholderFragment extends Fragment {
 
+		/**
+		 * Konstruktor klasy PlaceholderFragment
+		 */
 		public PlaceholderFragment() {
 		}
 
+		/**
+		 * Metoda zada widoku z danego fragmentu
+		 * 
+		 * @param inflater
+		 * @param container
+		 * @param savedInstanceState
+		 */
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
@@ -194,7 +209,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 	
 	/**
-	 * Funkcja ustawia odpowiedni status naszej diody
+	 * Funkcja wywolywana jako callback, ustawia nasza diode.
 	 * 
 	 *  @param val
 	 */
@@ -210,7 +225,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 
 
 	/**
-	 * Funkcja zwraca status naszej diody
+	 * Funkcja wywolywana jako callback, zwraca status naszej diody.
 	 * 
 	 *  @return lightStatus
 	 */

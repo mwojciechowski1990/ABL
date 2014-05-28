@@ -17,7 +17,7 @@ import java.util.Calendar;
 public class SSDPSearch {
 	
 	/**
-	 *  Funkcja nasluchuje odpowiedzi
+	 *  Funkcja do obslugi rzadan m-search
 	 *  
 	 *  @param inData
 	 *  @param port

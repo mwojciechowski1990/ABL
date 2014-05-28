@@ -109,7 +109,7 @@ public class SSDPClient {
 	}
 
 	/**
-	 *  Funkcja ustawia dane SSDPClient
+	 *  Konstruktor ustawiajacy dane SSDPClient
 	 *  
 	 *  @param port
 	 *  @param ipAddr

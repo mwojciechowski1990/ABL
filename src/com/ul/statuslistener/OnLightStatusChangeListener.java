@@ -1,7 +1,7 @@
 package com.ul.statuslistener;
 
 /**
- *  Funkcja nasluchuje mozliwe zmiany statusu
+ *  Interfejs nasluchuje mozliwe zmiany statusu
  * 
 */
 public interface OnLightStatusChangeListener {
