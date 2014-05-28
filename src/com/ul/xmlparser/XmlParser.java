@@ -12,7 +12,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.ul.webserver.Command;
 
 /**
- *  XmlParser, klasa odpowiedziala za parsowanie xml'a
+ *  XmlParser, klasa odpowiedzialna za parsowanie xml'a
  * 
 */
 public class XmlParser {

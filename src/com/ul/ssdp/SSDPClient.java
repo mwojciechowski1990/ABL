@@ -43,7 +43,7 @@ public class SSDPClient {
 
 
 	/**
-	 *  Funkcja umo¿liwia wys³anie rz¹danie Alive
+	 *  Funkcja umozliwia wyslanie rzadania Alive
 	 * 
 	*/
 	public void sendAlive() {
@@ -76,7 +76,7 @@ public class SSDPClient {
 	}
 
 	/**
-	 *  Funkcja umo¿liwia wysy³a rz¹danie ByeBye
+	 *  Funkcja umozliwia wyslanie rzadania ByeBye
 	 * 
 	*/
 	public void sendByeBye() {

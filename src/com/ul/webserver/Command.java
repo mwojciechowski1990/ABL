@@ -9,7 +9,7 @@ public class Command {
 	private String mValue;
 	
 	/**
-	 *  Funkcja pobiera nazwê mName
+	 *  Funkcja pobiera nazwe mName
 	 * 
 	*/
 	public String getName() {
@@ -17,7 +17,7 @@ public class Command {
 	}
 	
 	/**
-	 *  Funkcja zapisuje nazwê z podaneg parametru
+	 *  Funkcja zapisuje nazwe z podanego parametru
 	 * 
 	 *  @param mName
 	*/
@@ -26,7 +26,7 @@ public class Command {
 	}
 	
 	/**
-	 *  Funkcja pobiera wartoœæ mValue
+	 *  Funkcja pobiera wartosc mValue
 	 * 
 	*/
 	public String getValue() {
@@ -34,7 +34,7 @@ public class Command {
 	}
 	
 	/**
-	 *  Funkcja zapisuje wartoœæ z podanego parametru
+	 *  Funkcja zapisuje wartosc z podanego parametru
 	 * 
 	 *  @param mValue
 	*/

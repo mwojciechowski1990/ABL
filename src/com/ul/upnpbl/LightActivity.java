@@ -120,7 +120,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wskazuje wybran¹ opcjê w menu
+	 * Funkcja wskazuje wybrana opcje w menu
 	 * 
 	 * @param item
 	 * 
@@ -138,7 +138,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wywo³uj¹ca przerwê
+	 * Funkcja wywolujaca przerwe
 	 * 
 	 * @param item
 	 * 
@@ -159,7 +159,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 	/**
-	 * Funkcja wznawia dzia³anie programu
+	 * Funkcja wznawia dzialanie programu
 	 * 
 	 * @param item
 	 * 

@@ -64,7 +64,7 @@ public class WebServer extends NanoHTTPD {
 	}
 
 	/**
-	 *  Funkcja odpowiedzialna za odpowiedü z serwera
+	 *  Funkcja odpowiedzialna za odpowiedz z serwera
 	 * 
 	 * @param session 
 	*/
