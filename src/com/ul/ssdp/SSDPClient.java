@@ -12,6 +12,10 @@ import java.util.TimerTask;
 
 import android.os.Handler;
 
+/**
+ *  SSDPClient
+ * 
+*/
 public class SSDPClient {
 
 	private Timer mTimerNotify;
@@ -38,6 +42,10 @@ public class SSDPClient {
 			+ "\r\n";
 
 
+	/**
+	 *  Funkcja umo¿liwia wys³anie rz¹danie Alive
+	 * 
+	*/
 	public void sendAlive() {
 		ArrayList<String> messages = new ArrayList<String>();
 		for(int i = 0; i < mNTHeaders.length; i++) {
@@ -67,6 +75,10 @@ public class SSDPClient {
 		}
 	}
 
+	/**
+	 *  Funkcja umo¿liwia wysy³a rz¹danie ByeBye
+	 * 
+	*/
 	public void sendByeBye() {
 		ArrayList<String> messages = new ArrayList<String>();
 		for(int i = 0; i < mNTHeaders.length; i++) {
@@ -96,7 +108,18 @@ public class SSDPClient {
 		}
 	}
 
-
+	/**
+	 *  Funkcja ustawia dane SSDPClient
+	 *  
+	 *  @param port
+	 *  @param ipAddr
+	 *  @param deviceDescirptionPath
+	 *  @param cacheControl
+	 *  @param uuID
+	 *  @param osVersion
+	 *  @param productVersion
+	 * 
+	*/
 	public SSDPClient(int port, String ipAddr, String deviceDescirptionPath, int cacheControl, String uuID, String osVersion, String productVersion) {
 		mPort = port;
 		mIpAddr = ipAddr;
@@ -107,6 +130,10 @@ public class SSDPClient {
 		mProductVersion = productVersion;
 	}
 
+	/**
+	 *  Zatrzymanie notyfikacji
+	 * 
+	*/
 	public void stopNotify(){
 		if(mTimerNotify != null){
 			mTimerNotify.cancel();
@@ -115,6 +142,10 @@ public class SSDPClient {
 		sendByeBye();
 	}
 
+	/**
+	 *  Wznowienie notyfikacji
+	 * 
+	*/
 	public void startNotify(){
 		mTimerNotify = new Timer();
 		mTN = new TimerTask() {

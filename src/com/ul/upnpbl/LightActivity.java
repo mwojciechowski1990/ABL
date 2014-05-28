@@ -32,12 +32,23 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import android.os.Build;
 
+/**
+ *  LightActivity
+ * 
+*/
 public class LightActivity extends Activity implements OnLightStatusChangeListener{
 
 	private AtomicBoolean syncStop = new AtomicBoolean();;
 	private SSDPClient cl;
 	private WebServer server;
 	private String lightStatus = "False";
+	
+	/**
+	 *  Funkcja
+	 *     
+	 *   @param mName
+	 * 
+	*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -94,7 +105,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		}, 0, 500*1000);
 	}
 
-
+	/**
+	 * Funkcja tworzy menu opcji
+	 * 
+	 * @param menu
+	 * 
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -103,6 +119,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		return true;
 	}
 
+	/**
+	 * Funkcja wskazuje wybran¹ opcjê w menu
+	 * 
+	 * @param item
+	 * 
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -115,6 +137,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		return super.onOptionsItemSelected(item);
 	}
 
+	/**
+	 * Funkcja wywo³uj¹ca przerwê
+	 * 
+	 * @param item
+	 * 
+	 */
 	@Override
 	public void onPause() {
 		super.onPause();  // Always call the superclass method first
@@ -130,7 +158,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 	}
 
-
+	/**
+	 * Funkcja wznawia dzia³anie programu
+	 * 
+	 * @param item
+	 * 
+	 */	
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -159,6 +192,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 			return rootView;
 		}
 	}
+	
+	/**
+	 * Funkcja ustawia odpowiedni status naszej diody
+	 * 
+	 *  @param val
+	 */
 	@Override
 	public void onSetTarget(String val) {
 		lightStatus = val;
@@ -170,6 +209,11 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	}
 
 
+	/**
+	 * Funkcja zwraca status naszej diody
+	 * 
+	 *  @return lightStatus
+	 */
 	@Override
 	public String onGetTarget() {
 		return lightStatus;
