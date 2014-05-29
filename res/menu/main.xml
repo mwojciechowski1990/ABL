@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<item
+        android:id="@+id/trunOn"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/turnOn"/>
+        
+    <item
+        android:id="@+id/turnOff"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/turnOff"/>
+</menu>
