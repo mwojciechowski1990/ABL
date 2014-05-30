@@ -43,11 +43,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dark);
 
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-			.add(R.id.container, new PlaceholderFragment())
-			.commit();
-		}
 		final String tempIp = Formatter.formatIpAddress(((WifiManager) getSystemService(WIFI_SERVICE)).getConnectionInfo().getIpAddress());
 		Thread recThread = new Thread()
 		{
@@ -94,7 +89,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		}, 0, 500*1000);
 	}
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -135,7 +129,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 	}
 
-
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -149,21 +142,7 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 		syncStop.set(false);
 	}
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_light, container, false);
-			return rootView;
-		}
-	}
 	@Override
 	public void onSetTarget(String val) {
 		lightStatus = val;
@@ -173,7 +152,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 			}
 		});
 	}
-
 
 	@Override
 	public String onGetTarget() {
