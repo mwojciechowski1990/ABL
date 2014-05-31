@@ -148,7 +148,13 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		lightStatus = val;
 		this.runOnUiThread(new Runnable() {
 			public void run() {
-				Toast.makeText(getApplicationContext(), lightStatus, Toast.LENGTH_LONG).show();
+				//Toast.makeText(getApplicationContext(), lightStatus, Toast.LENGTH_LONG).show();
+				if(lightStatus.equalsIgnoreCase("false")) {
+
+					setContentView(R.layout.activity_dark);
+				} else {
+					setContentView(R.layout.activity_light);
+				}
 			}
 		});
 	}
