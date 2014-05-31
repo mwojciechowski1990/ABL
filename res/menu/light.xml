@@ -8,4 +8,15 @@
         android:showAsAction="never"
         android:title="@string/action_settings"/>
 
+   	<item
+        android:id="@+id/trunOn"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/turnOn"/>
+        
+    <item
+        android:id="@+id/turnOff"
+        android:orderInCategory="120"
+        android:showAsAction="never"
+        android:title="@string/turnOff"/>
 </menu>

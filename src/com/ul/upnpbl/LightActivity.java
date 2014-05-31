@@ -41,13 +41,8 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_light);
+		setContentView(R.layout.activity_dark);
 
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-			.add(R.id.container, new PlaceholderFragment())
-			.commit();
-		}
 		final String tempIp = Formatter.formatIpAddress(((WifiManager) getSystemService(WIFI_SERVICE)).getConnectionInfo().getIpAddress());
 		Thread recThread = new Thread()
 		{
@@ -94,7 +89,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		}, 0, 500*1000);
 	}
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -108,11 +102,16 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	    switch (item.getItemId()) {
+        case R.id.turnOff:
+        	turnOff();
+            return true;
+        case R.id.trunOn:
+        	turnOn();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 	@Override
@@ -130,7 +129,6 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 	}
 
-
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -144,31 +142,20 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 		syncStop.set(false);
 	}
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_light, container, false);
-			return rootView;
-		}
-	}
 	@Override
 	public void onSetTarget(String val) {
 		lightStatus = val;
 		this.runOnUiThread(new Runnable() {
 			public void run() {
-				Toast.makeText(getApplicationContext(), lightStatus, Toast.LENGTH_LONG).show();
+				if(lightStatus.equalsIgnoreCase("false")) {
+					setContentView(R.layout.activity_dark);
+				} else {
+					setContentView(R.layout.activity_light);
+				}
 			}
 		});
 	}
-
 
 	@Override
 	public String onGetTarget() {
@@ -181,5 +168,11 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		System.loadLibrary("recv-jni");
 	}
 
-
+	public void turnOn() {
+		setContentView(R.layout.activity_light);
+	}
+	
+	public void turnOff() {
+		setContentView(R.layout.activity_dark);
+	}
 }
