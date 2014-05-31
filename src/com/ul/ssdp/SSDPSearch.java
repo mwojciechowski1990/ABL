@@ -10,7 +10,24 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ *  SSDPSearch
+ * 
+*/
 public class SSDPSearch {
+	
+	/**
+	 *  Funkcja do obslugi rzadan m-search
+	 *  
+	 *  @param inData
+	 *  @param port
+	 *  @param deviceDescirptionPath
+	 *  @param cacheControl
+	 *  @param uuID
+	 *  @param osVersion
+	 *  @param productVersion
+	 * 
+	*/
 	public static void searchResponse(String inData, int port, String deviceDescirptionPath, int cacheControl, String uuID, String osVersion, String productVersion) {
 		String mSearch = "HTTP/1.1 200 OK\r\n"
 				+ "DATE: %s\r\n"

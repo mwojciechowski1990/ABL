@@ -14,6 +14,10 @@ import com.ul.xmlparser.XmlParser;
 
 import android.os.Environment;
 
+/**
+ *  WebServer
+ * 
+*/
 public class WebServer extends NanoHTTPD {
 
 	private String mSetTargetResponse = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
@@ -39,16 +43,31 @@ public class WebServer extends NanoHTTPD {
 
 	private OnLightStatusChangeListener onLightStatusChangeListener = null;
 
+	/**
+	 *  Funkcja ustawia klase listener.
+	 * 
+	 * @param onLightStatusChangeListener
+	*/
 	public void setOnLightStatusChangeListener(
 			OnLightStatusChangeListener onLightStatusChangeListener) {
 		this.onLightStatusChangeListener = onLightStatusChangeListener;
 	}
 
+	/**
+	 *  Konstruktor ustawia parametr port
+	 * 
+	 * @param port 
+	*/
 	public WebServer(int port) {
 		super(port);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 *  Funkcja odpowiedzialna za odpowiedz z serwera
+	 * 
+	 * @param session 
+	*/
 	@Override
 	public Response serve(IHTTPSession session) {
 

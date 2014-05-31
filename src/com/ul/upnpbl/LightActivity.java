@@ -1,8 +1,6 @@
 package com.ul.upnpbl;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.MulticastSocket;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,24 +11,13 @@ import com.ul.statuslistener.OnLightStatusChangeListener;
 import com.ul.upnpbinarylight.R;
 import com.ul.webserver.WebServer;
 
-import android.R.bool;
+
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
 import android.net.wifi.WifiManager;
-import android.net.wifi.WifiManager.MulticastLock;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.text.format.Formatter;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-import android.os.Build;
 
 public class LightActivity extends Activity implements OnLightStatusChangeListener{
 
@@ -38,6 +25,14 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	private SSDPClient cl;
 	private WebServer server;
 	private String lightStatus = "False";
+	
+	/**
+	 *  Funkcja uruchamiana przy starcie aplikacji.
+	 *  Odpowiedzialna za Layout oraz View.
+	 *     
+	 *   @param savedInstanceState
+	 * 
+	*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,6 +84,14 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		}, 0, 500*1000);
 	}
 
+	/**
+	 * W metodzie wskazywany jest plik, w ktorym zawarty jest
+	 * opis zawartosci menu.
+	 * 
+	 * @param menu
+	 * 
+	 */
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -96,6 +99,14 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		getMenuInflater().inflate(R.menu.light, menu);
 		return true;
 	}
+
+	/**
+	 * Metoda jest automatycznie wywolywana za kazdym
+	 * razem gdy uzytkownik kliknie w menu.
+	 * 
+	 * @param item
+	 * 
+	 */
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -114,6 +125,14 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	    }
 	}
 
+	/**
+	 * Metoda umozliwia zatrzymanie biezacych akcji, ktore w czasie wstrzymania 
+	 * aktywnosci nie powinny byc kontynuowane. Metoda ta pozwala takze przechowac 
+	 * wszelkie informacje, ktore powinny zostac zapisane po opuszczeniu przez uzytkownika aplikacji
+	 * 
+	 * 
+	 */
+
 	@Override
 	public void onPause() {
 		super.onPause();  // Always call the superclass method first
@@ -129,6 +148,13 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 	}
 
+	/**
+	 * Metoda wywolywana chwile przed tym jak activity wejdzie w interakcje z uzytkownikiem.
+	 * Od tej chwili activity jest w stanie running/resumed
+	 * i znajduje sie na szczycie stosu akcji.
+	 * 
+	 */	
+
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -142,6 +168,12 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		thread.start();
 		syncStop.set(false);
 	}
+	
+	/**
+	 * Funkcja wywolywana jako callback, ustawia nasza diode.
+	 * 
+	 *  @param val
+	 */
 
 	@Override
 	public void onSetTarget(String val) {
@@ -156,6 +188,13 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 			}
 		});
 	}
+
+
+	/**
+	 * Funkcja wywolywana jako callback, zwraca status naszej diody.
+	 * 
+	 *  @return lightStatus
+	 */
 
 	@Override
 	public String onGetTarget() {

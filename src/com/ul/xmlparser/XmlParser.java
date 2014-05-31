@@ -11,8 +11,18 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.ul.webserver.Command;
 
+/**
+ *  XmlParser, klasa odpowiedzialna za parsowanie xml'a
+ * 
+*/
 public class XmlParser {
 
+	/**
+	 *  Funkcja parsuje xml
+	 *  
+	 *  @param xml
+	 * 
+	*/
 	static public Command parse(String xml) {
 		Command command = null;
 		InputStream is = null;
