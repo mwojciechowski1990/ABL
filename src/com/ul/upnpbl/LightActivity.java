@@ -181,9 +181,9 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 		this.runOnUiThread(new Runnable() {
 			public void run() {
 				if(lightStatus.equalsIgnoreCase("false")) {
-					setContentView(R.layout.activity_dark);
+					turnOff();
 				} else {
-					setContentView(R.layout.activity_light);
+					turnOn();
 				}
 			}
 		});
