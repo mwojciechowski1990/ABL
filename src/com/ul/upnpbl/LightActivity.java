@@ -116,9 +116,11 @@ public class LightActivity extends Activity implements OnLightStatusChangeListen
 	    switch (item.getItemId()) {
         case R.id.turnOff:
         	turnOff();
+        	lightStatus = "False";
             return true;
         case R.id.trunOn:
         	turnOn();
+        	lightStatus = "True";
             return true;
         default:
             return super.onOptionsItemSelected(item);
